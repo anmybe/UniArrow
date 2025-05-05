@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UniARrow – Schedule</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #f4f4f4;
+    }
+    header {
+      background-color: #295d32;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    .subheader {
+      background-color: #d6a2ad;
+      color: white;
+      text-align: center;
+      padding: 0.5rem;
+      font-size: 0.9rem;
+    }
+    .schedule-table {
+      width: 90%;
+      margin: 0 auto 2rem auto;
+      border-collapse: separate;
+      border-spacing: 0 1rem;
+      animation: fadeIn 0.6s ease-in-out;
+    }
+    .schedule-table td {
+      padding: 0.8rem;
+      vertical-align: top;
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      font-size: 0.95rem;
+      transition: transform 0.2s ease;
+    }
+    .schedule-table td:first-child {
+      width: 80px;
+      background-color: transparent;
+      box-shadow: none;
+      padding-left: 0;
+      font-weight: bold;
+      color: #444;
+    }
+    .schedule-entry {
+      background-color: #c8d5b9;
+      transition: all 0.3s ease;
+    }
+    .next-entry {
+      background-color: #C8D5B9 !important;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+      transform: scale(1.02);
+    }
+    .btn-primary {
+      display: block;
+      margin: 2rem auto;
+      padding: 1rem;
+      background-color: #637081;
+      color: white;
+      text-align: center;
+      border-radius: 10px;
+      width: 80%;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    .btn-primary:hover {
+      background-color: #1A1423;
+      transform: scale(1.01);
+    }
+    .hidden {
+      display: none;
+    }
+    nav {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: #d6a2ad;
+      display: flex;
+      justify-content: space-around;
+      border-top: 1px solid #ccc;
+    }
+    nav a {
+      flex: 1;
+      text-align: center;
+      padding: 1rem;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+    }
+    nav a.active {
+      background-color: #295d32;
+      border-radius: 10px 10px 0 0;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <header>Schedule</header>
+  <div class="subheader" id="weekday-label">Your schedule for today</div>
+
+  <!-- Wochen-Tage bleiben wie gehabt, sie werden im Skript sichtbar gemacht -->
+  <div id="monday" class="day hidden">
+    <table class="schedule-table">
+      <tr><td>2:15 pm</td><td class="schedule-entry entry-2h">AI Exercise</td></tr>
+    </table>
+  </div>
+
+  <div id="tuesday" class="day hidden">
+    <table class="schedule-table">
+      <tr><td>12:15 pm</td><td class="schedule-entry entry-2h">HCI Exercise</td></tr>
+      <tr><td>2:15 pm</td><td class="schedule-entry entry-2h">HCI Lecture</td></tr>
+    </table>
+  </div>
+
+  <div id="wednesday" class="day hidden">
+    <table class="schedule-table">
+      <tr><td>9:15 am</td><td class="schedule-entry entry-3h">Software Engineering</td></tr>
+      <tr><td>1:15 pm</td><td class="schedule-entry entry-3h">Software Engineering Exercise</td></tr>
+      <tr><td>4:15 pm</td><td class="schedule-entry entry-4h">IT Innovation</td></tr>
+    </table>
+  </div>
+
+  <div id="thursday" class="day hidden">
+    <table class="schedule-table">
+        <tr><td>8:15 am</td><td class="schedule-entry entry-2h">Macro</td></tr>
+        <tr><td>10:15 am</td><td class="schedule-entry entry-2h">Cybersecurity</td></tr>
+        <tr><td>12:15 am</td><td class="schedule-entry entry-1h">Cybersecurity Exercise</td></tr>
+        <tr><td>6:15 pm</td><td class="schedule-entry entry-2h">Market Design</td></tr>
+    </table>
+  </div>
+
+  <div id="friday" class="day hidden">
+    <table class="schedule-table">
+      <tr><td>10:15 am</td><td class="schedule-entry entry-2h">AI Lecture</td></tr>
+    </table>
+  </div>
+
+  <div id="saturday" class="day hidden">
+    <table class="schedule-table">
+      <tr><td>10:30 am</td><td class="schedule-entry entry-2h">Kickboxing Level 2</td></tr>
+    </table>
+  </div>
+
+  <div id="sunday" class="day hidden">
+    <table class="schedule-table">
+      <tr><td>3:30 pm</td><td class="schedule-entry entry-4h">Group meeting at Torstrasse</td></tr>
+    </table>
+  </div>
+
+  <a href="ar.html" class="btn-primary">Navigate to next lecture</a>
+
+  <nav>
+    <a href="index.html">🏠</a>
+    <a href="calendar.html" class="active">📅</a>
+    <a href="ar.html">🧭</a>
+  </nav>
+
+  <script>
+    const days = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
+    const today = days[new Date().getDay()];
+    document.querySelectorAll('.day').forEach(d => d.classList.add('hidden'));
+    const todayBlock = document.getElementById(today);
+    if (todayBlock) todayBlock.classList.remove('hidden');
+    
+    const date = new Date();
+    const weekday = date.toLocaleDateString('en-US', { weekday: 'long' });
+    const datum = date.toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric' });
+
+    document.getElementById("weekday-label").textContent = `Your schedule on ${weekday}, ${datum}`;
+
+
+
+    const rows = document.querySelectorAll(`#${today} .schedule-table tr`);
+    let nextFound = false;
+
+    rows.forEach(row => {
+      const timeText = row.children[0]?.textContent.trim();
+      if (!timeText) return;
+
+      const match = timeText.match(/(\d{1,2}):(\d{2})\s*(am|pm)?/i);
+      if (match) {
+        let hour = parseInt(match[1]);
+        const minute = parseInt(match[2]);
+        const period = match[3]?.toLowerCase();
+
+        if (period === "pm" && hour < 12) hour += 12;
+        if (period === "am" && hour === 12) hour = 0;
+
+        const entryTime = hour + minute / 60;
+        const now = new Date();
+        const currentTime = now.getHours() + now.getMinutes() / 60;
+
+        if (!nextFound && entryTime >= currentTime) {
+          row.children[1]?.classList.add('next-entry');
+          nextFound = true;
+        }
+      }
+    });
+  </script>
+</body>
+</html>

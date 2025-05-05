@@ -1,32 +1,134 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>UniARrow – AR Navigation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UniARrow – Home</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #f4f4f4;
+    }
+    header {
+      background-color: #295d32;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    .subheader {
+      background-color: #d6a2ad;
+      color: white;
+      text-align: center;
+      padding: 0.5rem;
+      font-size: 0.9rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      padding: 1rem;
+    }
+    .tile {
+      background-color: #c8d5b9;
+      border-radius: 10px;
+      text-align: center;
+      padding: 1rem 0.5rem;
+      font-size: 0.9rem;
+      font-weight: bold;
+      color: #222;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    .tile:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      cursor: pointer;
+    }
+    .tile img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+    }
+
+    .button {
+      display: inline-block;
+      background-color: #637081;
+      color: white;
+      padding: 1rem 2rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border-radius: 12px;
+      text-decoration: none;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    .button:hover {
+      background-color: #1A1423;
+      transform: scale(1.02);
+    }
+    nav {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: #d6a2ad;
+      display: flex;
+      justify-content: space-around;
+      border-top: 1px solid #ccc;
+    }
+    nav a {
+      flex: 1;
+      text-align: center;
+      padding: 1rem;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+    nav a.active {
+      background-color: #295d32;
+      border-radius: 10px 10px 0 0;
+    }
+    nav a:hover {
+      background-color: #3c7a46;
+    }
+  </style>
 </head>
 <body>
-  <h1>UniARrow</h1>
-  <p>Tippe auf ein Modell, um es in AR auf deinem iPhone anzuzeigen.</p>
+  <header>Home</header>
+  <div class="subheader">
+    Welcome back! Choose below and we'll find the fastest way to get there.
+  </div>
 
-  <div>
-    <h2>Laterne</h2>
-    <a rel="ar" href="assets/models/laterne.usdz">
-      <img src="assets/models/laterne.jpg" alt="Laterne" width="200">
+  <div class="grid">
+    <div class="tile"><img src="assets/icons/toilet.png" alt="Toilet"></div>
+    <div class="tile"><img src="assets/icons/info.png" alt="Info"></div>
+    <div class="tile"><img src="assets/icons/exit.png" alt="Exit"></div>
+    <div class="tile"><img src="assets/icons/library.png" alt="Library"></div>
+    <div class="tile"><img src="assets/icons/printer.png" alt="Printer"></div>
+    <div class="tile"><img src="assets/icons/mensa.png" alt="Mensa"></div>
+    <div class="tile"><img src="assets/icons/rooms.png" alt="Free Rooms"></div>
+    <div class="tile"><img src="assets/icons/search.png" alt="Room Search"></div>
+    <div class="tile"><img src="assets/icons/firstaid.png" alt="First Aid"></div>
+  </div>
+
+  <div style="text-align: center; margin: 2rem 1rem;">
+    <a rel="ar" href="assets/models/Laterne.usdz" class="button">
+      Show me some ✨HSG Art✨
     </a>
   </div>
 
-  <div>
-    <h2>Campusplan</h2>
-    <a rel="ar" href="assets/models/campusplan.usdz">
-      <img src="assets/models/campusplan.jpg" alt="Campusplan" width="200">
-    </a>
-  </div>
-
-  <div>
-    <h2>Wegweiser</h2>
-    <a rel="ar" href="assets/models/wegweiser.usdz">
-      <img src="assets/models/wegweiser.jpg" alt="Wegweiser" width="200">
-    </a>
-  </div>
+  <nav>
+    <a href="index.html" class="active">🏠</a>
+    <a href="calendar.html">📅</a>
+    <a href="ar.html">🧭</a>
+  </nav>
 </body>
 </html>
