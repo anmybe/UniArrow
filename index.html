@@ -3,28 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
   <title>UniARrow – Home</title>
   <style>
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: 'GillSansMTPro', sans-serif;
       background-color: #f4f4f4;
     }
+
     header {
       background-color: #295d32;
       color: white;
-      padding: 1rem;
       text-align: center;
       font-size: 1.5rem;
       font-weight: bold;
+      padding: 1.2rem 0.5rem 0.6rem 0.5rem; 
     }
+
     .subheader {
       background-color: #d6a2ad;
       color: white;
       text-align: center;
-      padding: 0.5rem;
-      font-size: 0.9rem;
+      padding: 0.7rem 0.5rem 0.3rem 0.5rem;
+      font-size: 1rem;
     }
+
     .grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -51,11 +58,11 @@
       cursor: pointer;
     }
     .tile img {
-    width: 40px;
-    height: 40px;
-    object-fit: contain;
-    display: block;
-    margin: 0 auto;
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto;
     }
 
     .button {
@@ -98,6 +105,7 @@
     }
     nav a:hover {
       background-color: #3c7a46;
+      border-radius: 10px 10px 0 0;
     }
   </style>
 </head>

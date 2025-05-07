@@ -1,0 +1,39 @@
+@font-face {
+    font-family: 'GillSansMTPro';
+    src: url('assets/fonts/GillSansMTPro-Light.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'GillSansMTPro';
+    src: url('assets/fonts/GillSansMTPro-LightItalic.otf') format('opentype');
+    font-weight: 300;
+    font-style: italic;
+  }
+  @font-face {
+    font-family: 'GillSansMTPro';
+    src: url('assets/fonts/GillSansMTPro-Medium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'GillSansMTPro';
+    src: url('assets/fonts/GillSansMTPro-MediumItalic.otf') format('opentype');
+    font-weight: 500;
+    font-style: italic;
+  }
+  @font-face {
+    font-family: 'GillSansMTPro';
+    src: url('assets/fonts/GillSansMTPro-Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'GillSansMTPro';
+    src: url('assets/fonts/GillSansMTPro-BoldItalic.otf') format('opentype');
+    font-weight: 700;
+    font-style: italic;
+  }
+
+  
+  

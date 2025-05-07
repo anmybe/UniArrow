@@ -3,21 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
   <title>UniARrow – AR Navigation</title>
   <style>
-    body, html {
+    body {
       margin: 0;
       padding: 0;
       height: 100%;
       overflow: hidden;
-      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: 'GillSansMTPro', sans-serif;
       background-color: #f4f4f4;
     }
-    .subheader {
-      background-color: #d6a2ad;
+
+    header {
+      background-color: #295d32;
       color: white;
       text-align: center;
-      padding: 0.5rem;
+      font-size: 1.5rem;
+      font-weight: bold;
+      padding: 1.2rem 0.5rem 0.6rem 0.5rem; 
+    }
+
+    .subheader {
+      background-color: #d6a2ad;
+      color: black;
+      text-align: center;
+      padding: 0.7rem 0.5rem 0.3rem 0.5rem;
       font-size: 0.9rem;
     }
     .placeholder {
@@ -36,18 +47,22 @@
       gap: 1rem;
       padding: 1.5rem;
     }
+
     .button {
-      background-color: #637081;
-      color: white;
-      padding: 1rem 1.5rem;
+      background-color: #c8d5b9;
+      color: black;
+      padding: 1.2rem 1.5rem 0.6rem 1.5rem; /* oben, rechts, unten, links */
       border-radius: 10px;
       text-align: center;
       font-weight: bold;
       text-decoration: none;
+      display: inline-block;
     }
+
     .button:hover {
-      background-color: #4f5c6d;
-      transform: scale(1.01);
+      background-color: #295d32;
+      color: white;
+      transform: scale(1.05);
     }
     nav {
       position: fixed;
@@ -70,12 +85,19 @@
       background-color: #295d32;
       border-radius: 10px 10px 0 0;
     }
+    nav a:hover {
+      background-color: #3c7a46;
+      border-radius: 10px 10px 0 0;
+    }
+
   </style>
 </head>
 <body>
-  <header style="background-color: #295d32; color: white; padding: 1rem; text-align: center; font-size: 1.5rem; font-weight: bold;">
+  <header>
     Navigation
   </header>
+  
+
   
   <iframe
   src="https://use.mazemap.com/embed.html#v=1&campusid=710&zlevel=1&center=9.373758,47.430771&zoom=16.5"
@@ -85,8 +107,8 @@
 
 
   <div class="button-group">
-    <a rel="ar" href="assets/models/wegweiser.usdz" class="button" style="background-color: #c8d5b9; color: black;">AR Navigation</a>
-    <a rel="ar" href="assets/models/lageplan.usdz" class="button" style="background-color: #c8d5b9; color: black;">AR Map</a>
+    <a rel="ar" href="assets/models/wegweiser.usdz" class="button">AR Navigation</a>
+    <a rel="ar" href="assets/models/lageplan.usdz" class="button">AR Map</a>
   </div>
 
   <nav>
